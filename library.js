@@ -9,6 +9,9 @@ function Book(title, author, pages, read){
         return this.title + " by " + this.author + " , " + 
         this.pages + " pages " + " , " + this.read;
     }
+}
 
+function addBookToLibrary(){
+    
 }
 

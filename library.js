@@ -1,6 +1,7 @@
 const myLibrary = [];
 
 function Book(title, author, pages, read){
+    this.id = crypto.randomUUID();
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -11,6 +12,7 @@ function Book(title, author, pages, read){
     }
 }
 
+//add error handling to check for emptiness
 function addBookToLibrary(event){
     const addBookForm = document.querySelector("#addBook")
     event.preventDefault();
@@ -22,7 +24,27 @@ function addBookToLibrary(event){
 
     const newBook = new Book(title, author, pages, completed);
     myLibrary.push(newBook);
+    console.log(myLibrary);
+    displayBookShelf();
     addBookForm.reset();//resets form after submitting
 }
 
-console.log(myLibrary);
+function displayBookShelf(){
+    const shelf = document.querySelector(".BookShelf");
+    shelf.innerHTML = "";
+    for (i=0; i < myLibrary.length; i++){
+        let bookCard = document.createElement("div");
+        let bookCover = document.createElement("img");
+        let bookTitle = document.createElement("h1");
+        let bookAuthor = document.createElement("h4");
+
+        bookTitle.textContent = myLibrary[i].title;
+        bookAuthor.textContent = myLibrary[i].author
+        bookCard.setAttribute("class", "book");
+        bookCard.appendChild(bookCover);
+        bookCard.appendChild(bookTitle);
+        bookCard.appendChild(bookAuthor);
+
+        shelf.appendChild(bookCard);
+    }
+}

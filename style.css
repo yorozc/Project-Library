@@ -48,6 +48,7 @@ input[type="text"]{
 .BookShelf{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
     gap: 32px;
     border: 1px solid black;
 }

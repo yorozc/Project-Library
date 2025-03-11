@@ -41,6 +41,7 @@ function displayBookShelf(){
         bookTitle.textContent = myLibrary[i].title;
         bookAuthor.textContent = myLibrary[i].author
         bookCard.setAttribute("class", "book");
+        bookCard.setAttribute("data-id", myLibrary[i].id);
         bookCard.appendChild(bookCover);
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(bookAuthor);

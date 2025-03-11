@@ -9,9 +9,9 @@
 </head>
 <body>
     <div id="visButton">
-        <button>Add Book</button>
+        <button id="showForm">Add Book</button>
     </div>
-    <div class="BookForm">
+    <div class="BookForm" style="display: none;">
         <form id="addBook" onsubmit="addBookToLibrary(event)" action="#" method="post">
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required>

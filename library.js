@@ -33,6 +33,7 @@ function displayBookShelf(){
     const shelf = document.querySelector(".BookShelf");
     shelf.innerHTML = "";
     for (i=0; i < myLibrary.length; i++){
+        //add delete button and something to show it completed
         let bookCard = document.createElement("div");
         let bookCover = document.createElement("img");
         let bookTitle = document.createElement("h1");
@@ -47,5 +48,14 @@ function displayBookShelf(){
         bookCard.appendChild(bookAuthor);
 
         shelf.appendChild(bookCard);
+        bookForm.style.display = "none";
     }
 }
+
+//show the form to add a book when the user presses it
+const showForm = document.getElementById("showForm");
+const bookForm = document.querySelector(".BookForm");
+
+showForm.addEventListener("click", ()=>{
+    bookForm.style.display = "flex";
+})

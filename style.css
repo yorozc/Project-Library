@@ -37,19 +37,19 @@ input[type="text"]{
     display: flex;
     gap: 0.5em;
     padding-top: 0;
-    
 }
 
 #addBook input[type="submit"]{
     display: block;
     margin: 1em auto 0;
-    width: 100%;
+    
 }
 
 .BookShelf{
     display: flex;
     flex-wrap: wrap;
     gap: 32px;
+    border: 1px solid black;
 }
 
 .book{

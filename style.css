@@ -48,9 +48,10 @@ input[type="text"]{
 .BookShelf{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     gap: 32px;
     padding: 1em;
+    border: 1px solid black;
 }
 
 .book{

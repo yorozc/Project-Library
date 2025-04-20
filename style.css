@@ -45,6 +45,13 @@ input[type="text"]{
     
 }
 
+#visButton{
+    width: 100%;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+}
+
 .BookShelf{
     display: flex;
     flex-wrap: wrap;
@@ -60,6 +67,7 @@ input[type="text"]{
     justify-content: space-between;
     text-align: center;
     border: 1px solid rgb(0, 0, 0);
+    box-shadow: 8px 8px 1px;
     height: 250px;
     width: 175px;
     padding: 8px;

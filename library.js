@@ -1,7 +1,14 @@
+title = "Default"
+author = "Test author"
+pages = 222
+completed = "on"
+const defaultBook = new Book(title, author, pages, completed);
 const myLibrary = [];
+myLibrary.push(defaultBook)
+displayBookShelf()
 
 function Book(title, author, pages, read){
-    this.id = crypto.randomUUID();
+    this.id = crypto.randomUUID(); //create random id 
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -23,6 +30,7 @@ function addBookToLibrary(event){
     const completed = formData.get("read");
 
     const newBook = new Book(title, author, pages, completed);
+
     myLibrary.push(newBook);
     console.log(myLibrary);
     displayBookShelf();

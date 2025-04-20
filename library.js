@@ -36,21 +36,33 @@ function displayBookShelf(){
     for (i=0; i < myLibrary.length; i++){
         //add delete button and something to show it completed
         let bookCard = document.createElement("div");
-        let bookCover = document.createElement("img");
         let bookTitle = document.createElement("h1");
         let bookAuthor = document.createElement("h4");
-        let status = document.createElement("img");
+        let bookStatus = document.createElement("img");
 
         bookTitle.textContent = myLibrary[i].title;
-        bookAuthor.textContent = myLibrary[i].author
+        bookAuthor.textContent = myLibrary[i].author;
+
+
+        
         bookCard.setAttribute("class", "book");
         bookCard.setAttribute("data-id", myLibrary[i].id);
-        bookCard.appendChild(bookCover);
+        bookStatus.setAttribute("id", "status");
+        bookStatus.setAttribute("src", checkForStatus(myLibrary[i].read))
+        
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(bookAuthor);
-
+        bookCard.appendChild(bookStatus);
         shelf.appendChild(bookCard);
         bookForm.style.display = "none";
+    }
+}
+
+function checkForStatus(status){
+    if (status === "on"){
+        return "resources/check.png";
+    }else{
+        return "resources/remove.png";
     }
 }
 

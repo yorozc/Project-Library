@@ -1,4 +1,11 @@
+const myLibrary = [];
 
+// global variables for elements that are used in multiple functions
+const bookForm = document.querySelector(".BookForm");
+const addBookForm = document.querySelector("#addBook");
+const showForm = document.querySelector(".showForm");
+const singleBook = document.querySelector(".book");
+const removeBook = document.querySelector(".removeBook");
 
 function Book(title, author, pages, read){
     this.id = crypto.randomUUID(); //create random id 
@@ -14,14 +21,12 @@ function Book(title, author, pages, read){
 
 //add error handling to check for emptiness
 function addBookToLibrary(event){
-    const addBookForm = document.querySelector("#addBook")
     event.preventDefault();
     const formData = new FormData(addBookForm);
     const title = formData.get("title");
     const author = formData.get("author");
     const pages = formData.get("pages");
     const completed = formData.get("read");
-
     const newBook = new Book(title, author, pages, completed);
 
     myLibrary.push(newBook);
@@ -38,7 +43,11 @@ function displayBookShelf(){
         let bookCard = document.createElement("div");
         let bookTitle = document.createElement("h1");
         let bookAuthor = document.createElement("h4");
+
+        let bottomPart = document.createElement("div"); //contains bookStatus & removeBook
         let bookStatus = document.createElement("img");
+        let removeBook = document.createElement("button")
+
 
         bookTitle.textContent = myLibrary[i].title;
         bookAuthor.textContent = myLibrary[i].author;
@@ -47,18 +56,37 @@ function displayBookShelf(){
         
         bookCard.setAttribute("class", "book");
         bookCard.setAttribute("data-id", myLibrary[i].id);
+
+        bottomPart.setAttribute("class", "bottomOfCard")
+
+        // bottom left image of a check or x 
         bookStatus.setAttribute("id", "status");
         bookStatus.setAttribute("src", checkForStatus(myLibrary[i].read))
+
+        removeBook.setAttribute("class", "removeBook");
+        removeBook.textContent = "Rem";
+        removeBook.type = "button";
+        removeBook.style.display = "none";
         
+        bottomPart.appendChild(bookStatus);
+        bottomPart.appendChild(removeBook)
+
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(bookAuthor);
-        bookCard.appendChild(bookStatus);
+        bookCard.appendChild(bottomPart);
+        bookCard.addEventListener("mouseover", () => {
+            removeBook.style.display = "flex";
+        });
+        bookCard.addEventListener("mouseout", () =>{
+            removeBook.style.display = "none";
+        })
+
         shelf.appendChild(bookCard);
         bookForm.style.display = "none";
     }
 }
 
-function checkForStatus(status){
+function checkForStatus(status){ //checks if book completed is checked or not
     if (status === "on"){
         return "resources/check.png";
     }else{
@@ -66,11 +94,14 @@ function checkForStatus(status){
     }
 }
 
+function remove(){
+    
+}
+
 //show the form to add a book when the user presses it
-const showForm = document.querySelector(".showForm");
-const bookForm = document.querySelector(".BookForm");
-open = false
-showForm.addEventListener("click", ()=>{
+function toggleForm(){
+    open = false
+    showForm.addEventListener("click", ()=>{
     if (open === false){
         bookForm.style.display = "flex";
         open = true
@@ -78,13 +109,22 @@ showForm.addEventListener("click", ()=>{
         open = false
         bookForm.style.display = "none";
     }
-})
+    })
+}
 
-title = "Default"
-author = "Test author"
-pages = 222
-completed = "on"
-const defaultBook = new Book(title, author, pages, completed);
-const myLibrary = [];
-myLibrary.push(defaultBook)
-displayBookShelf()
+function createDefaultBook(){ //testing purposes so i dont have to make a book over and over again
+    title = "Default"
+    author = "Test author"
+    pages = 222
+    completed = "on"
+    const defaultBook = new Book(title, author, pages, completed);
+    myLibrary.push(defaultBook)
+}
+
+function main(){
+    toggleForm()
+    createDefaultBook()
+    displayBookShelf()
+}
+
+main()

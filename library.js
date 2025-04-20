@@ -64,7 +64,7 @@ function displayBookShelf(){
         bookStatus.setAttribute("src", checkForStatus(myLibrary[i].read))
 
         removeBook.setAttribute("class", "removeBook");
-        removeBook.textContent = "Rem";
+        removeBook.textContent = "DEL";
         removeBook.type = "button";
         removeBook.style.display = "none";
         
@@ -95,7 +95,7 @@ function checkForStatus(status){ //checks if book completed is checked or not
 }
 
 function remove(){
-    
+
 }
 
 //show the form to add a book when the user presses it

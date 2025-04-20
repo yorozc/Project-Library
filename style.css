@@ -10,6 +10,7 @@
     --textColor: #ffffff;
     --buttonColor: #3c6e71;
     --formColor: #353535;
+    --deleteColor: #ff0000;
 }
 
 body{
@@ -113,14 +114,22 @@ input[type="text"]{
 }
 
 .book .removeBook{
-    height: 20px;
-    width: 20px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    background-color: var(--deleteColor);
+    border: none;
+    color: var(--textColor);
+    font-weight: bold;
+    padding: 2px;
+    border-radius: 5px;
 }
 
 .book .bottomOfCard{
     display: flex;
     justify-content: space-between;
+    height: 20px;
 }
 
 .book h1{

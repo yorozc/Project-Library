@@ -39,6 +39,7 @@ function displayBookShelf(){
         let bookCover = document.createElement("img");
         let bookTitle = document.createElement("h1");
         let bookAuthor = document.createElement("h4");
+        let status = document.createElement("img");
 
         bookTitle.textContent = myLibrary[i].title;
         bookAuthor.textContent = myLibrary[i].author
@@ -54,7 +55,7 @@ function displayBookShelf(){
 }
 
 //show the form to add a book when the user presses it
-const showForm = document.getElementById("showForm");
+const showForm = document.querySelector(".showForm");
 const bookForm = document.querySelector(".BookForm");
 
 showForm.addEventListener("click", ()=>{

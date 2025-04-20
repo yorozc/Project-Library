@@ -1,4 +1,5 @@
-const myLibrary = [];
+let myLibrary = [];
+let myLibraryIds = [];
 
 // global variables for elements that are used in multiple functions
 const bookForm = document.querySelector(".BookForm");
@@ -17,6 +18,7 @@ function Book(title, author, pages, read){
         return this.title + " by " + this.author + " , " + 
         this.pages + " pages " + " , " + this.read;
     }
+    myLibraryIds.push(this.id)
 }
 
 //add error handling to check for emptiness
@@ -81,6 +83,17 @@ function displayBookShelf(){
             removeBook.style.display = "none";
         })
 
+        removeBook.addEventListener("click", () => {
+            for (i=0; i < myLibrary.length; i++){
+                if (bookCard.getAttribute("data-id") === myLibrary[i].id){
+                    myLibrary.splice(i, 1);
+                    bookCard.remove()
+                }
+            }
+            
+            console.log(myLibrary)
+        });
+
         shelf.appendChild(bookCard);
         bookForm.style.display = "none";
     }
@@ -92,10 +105,6 @@ function checkForStatus(status){ //checks if book completed is checked or not
     }else{
         return "resources/remove.png";
     }
-}
-
-function remove(){
-
 }
 
 //show the form to add a book when the user presses it

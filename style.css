@@ -4,6 +4,17 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+:root{
+    --primaryColor: #d9d9d9 ;
+    --cardColor: #284b63;
+    --textColor: #ffffff;
+    --buttonColor: #3c6e71
+}
+
+body{
+    background-color: var(--primaryColor);
+}
+
 .BookForm{
     border: 1px solid black;
     height: 350px;
@@ -47,9 +58,20 @@ input[type="text"]{
 
 #visButton{
     width: 100%;
-    border: 1px solid red;
     display: flex;
     justify-content: center;
+    padding: 5% 0;
+}
+
+#showForm{
+    font-weight: bolder;
+    font-size: 16px;
+    width: 125px;
+    height: 50px;
+    background-color: var(--buttonColor);
+    color: var(--textColor);
+    border-radius: 2px;
+    box-shadow: 3px 3px 1px 0 #000000;
 }
 
 .BookShelf{
@@ -58,7 +80,6 @@ input[type="text"]{
     justify-content: flex-start;
     gap: 32px;
     padding: 1em;
-    border: 1px solid black;
 }
 
 .book{
@@ -66,17 +87,21 @@ input[type="text"]{
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
-    border: 1px solid rgb(0, 0, 0);
-    box-shadow: 8px 8px 1px;
+    background-color: var(--cardColor);
+    box-shadow: 8px 8px 1px 0 #000000;
     height: 250px;
     width: 175px;
     padding: 8px;
     border-radius: 10px;
+    color: var(--textColor);
 }
 
 .book img{
     height: 35%;
     width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: var(--textColor);
 }
 
 .book h1{

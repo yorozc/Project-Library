@@ -1,11 +1,4 @@
-title = "Default"
-author = "Test author"
-pages = 222
-completed = "on"
-const defaultBook = new Book(title, author, pages, completed);
-const myLibrary = [];
-myLibrary.push(defaultBook)
-displayBookShelf()
+
 
 function Book(title, author, pages, read){
     this.id = crypto.randomUUID(); //create random id 
@@ -67,3 +60,12 @@ const bookForm = document.querySelector(".BookForm");
 showForm.addEventListener("click", ()=>{
     bookForm.style.display = "flex";
 })
+
+title = "Default"
+author = "Test author"
+pages = 222
+completed = "on"
+const defaultBook = new Book(title, author, pages, completed);
+const myLibrary = [];
+myLibrary.push(defaultBook)
+displayBookShelf()

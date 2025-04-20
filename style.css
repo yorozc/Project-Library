@@ -8,7 +8,8 @@
     --primaryColor: #d9d9d9 ;
     --cardColor: #284b63;
     --textColor: #ffffff;
-    --buttonColor: #3c6e71
+    --buttonColor: #3c6e71;
+    --formColor: #353535;
 }
 
 body{
@@ -16,7 +17,7 @@ body{
 }
 
 .BookForm{
-    border: 1px solid black;
+    background-color: var(--formColor);
     height: 350px;
     padding: 2em;
     display: flex;
@@ -57,7 +58,10 @@ input[type="text"]{
 }
 
 .formContainer{
-    
+    border-radius: 10px;
+    padding: 35px;
+    color: var(--textColor);
+    font-weight: bold;
 }
 
 #visButton{

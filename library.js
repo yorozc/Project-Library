@@ -50,12 +50,9 @@ function displayBookShelf(){
         let bookStatus = document.createElement("img");
         let removeBook = document.createElement("button")
 
-
         bookTitle.textContent = myLibrary[i].title;
         bookAuthor.textContent = myLibrary[i].author;
 
-
-        
         bookCard.setAttribute("class", "book");
         bookCard.setAttribute("data-id", myLibrary[i].id);
 

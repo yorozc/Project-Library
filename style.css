@@ -79,8 +79,17 @@ input[type="text"]{
     height: 50px;
     background-color: var(--buttonColor);
     color: var(--textColor);
+    border: none;
     border-radius: 2px;
-    box-shadow: 3px 3px 1px 0 #000000;
+    box-shadow: 2px 2px 1px 0 #000000;
+}
+
+.showForm:hover{
+    transform: scale(1.05);
+}
+
+.showForm:active{
+    transform: scale(1);
 }
 
 .BookShelf{
@@ -105,6 +114,9 @@ input[type="text"]{
     color: var(--textColor);
 }
 
+.book:hover{
+    transform: scale(1.1);
+}
 
 .book #status{
     height: 20px;

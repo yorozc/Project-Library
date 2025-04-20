@@ -57,9 +57,15 @@ function displayBookShelf(){
 //show the form to add a book when the user presses it
 const showForm = document.querySelector(".showForm");
 const bookForm = document.querySelector(".BookForm");
-
+open = false
 showForm.addEventListener("click", ()=>{
-    bookForm.style.display = "flex";
+    if (open === false){
+        bookForm.style.display = "flex";
+        open = true
+    }else{
+        open = false
+        bookForm.style.display = "none";
+    }
 })
 
 title = "Default"

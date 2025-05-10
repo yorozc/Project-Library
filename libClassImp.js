@@ -12,7 +12,6 @@ const formVariables = () =>{ //priv access variables.
         getSingleBook: () => singleBook,
         getRemoveBook: () => removeBook,
     }
-
 }
 
 const Book = class{ //private
@@ -27,4 +26,16 @@ const Book = class{ //private
             this.pages + " pages " + " , " + this.read;
         }
     }
+
+    
+}
+
+const addBookToLibrary = (event) =>{
+    event.preventDefault();
+    const formData = new FormData(addBookForm);
+    const title = formData.get("title");
+    const author = formData.get("author");
+    const pages = formData.get("pages");
+    const completed = formData.get("read");
+    const book = new Book(title, author, pages, completed); //access book
 }

@@ -53,9 +53,10 @@ const Book = class{ //private
 }
 
 const addBookToLibrary = (event) =>{
-    event.preventDefault();
     const formVars = formVariables();
-    const formData = new FormData(formVars.getAddBookForm());
+    event.preventDefault();
+    const addBookForm = formVars.getAddBookForm();
+    const formData = new FormData(addBookForm);
     const title = formData.get("title");
     const author = formData.get("author");
     const pages = formData.get("pages");
@@ -65,8 +66,7 @@ const addBookToLibrary = (event) =>{
     library.addItem(book);
     console.log(library.getItems());
     displayBookShelf();
-    const formVariables = new formVariables();
-    formVariables.resetAddBookForm();
+    formVars.resetAddBookForm();
 }
 
 const displayBookShelf = () => {
@@ -74,6 +74,7 @@ const displayBookShelf = () => {
     const library = new myLibrary();
     const libraryList = library.getItems();
     const shelf = formVars.getShelf();
+    const bookForm = formVars.getBookForm();
     shelf.innerHTML = "";
     for (i=0; i < libraryList.length; i++){
         //add delete button and something to show it completed
@@ -85,17 +86,17 @@ const displayBookShelf = () => {
         let bookStatus = document.createElement("img");
         let removeBook = document.createElement("button")
 
-        bookTitle.textContent = myLibrary[i].title;
-        bookAuthor.textContent = myLibrary[i].author;
+        bookTitle.textContent = libraryList[i].title;
+        bookAuthor.textContent = libraryList[i].author;
 
         bookCard.setAttribute("class", "book");
-        bookCard.setAttribute("data-id", myLibrary[i].id);
+        bookCard.setAttribute("data-id", libraryList[i].id);
 
         bottomPart.setAttribute("class", "bottomOfCard")
 
         // bottom left image of a check or x 
         bookStatus.setAttribute("id", "status");
-        bookStatus.setAttribute("src", checkForStatus(myLibrary[i].read))
+        bookStatus.setAttribute("src", checkForStatus(libraryList[i].read))
 
         removeBook.setAttribute("class", "removeBook");
         removeBook.textContent = "DEL";
@@ -144,6 +145,14 @@ function toggleForm(){
         bookForm.style.display = "none";
     }
     })
+}
+
+function checkForStatus(status){ //checks if book completed is checked or not
+    if (status === "on"){
+        return "resources/check.png";
+    }else{
+        return "resources/remove.png";
+    }
 }
 
 toggleForm();

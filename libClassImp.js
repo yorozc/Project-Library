@@ -14,6 +14,18 @@ const formVariables = () =>{ //priv access variables.
     }
 }
 
+const myLibrary = class{ //encapsulation of book list
+    #library = [];
+
+    addItem(item){
+        this.#library.push(item);
+    }
+
+    getItems(){
+        return [...this.#library];
+    }
+}
+
 const Book = class{ //private
     constructor(title, author, pages, read){
         this.id = crypto.randomUUID();
@@ -38,4 +50,8 @@ const addBookToLibrary = (event) =>{
     const pages = formData.get("pages");
     const completed = formData.get("read");
     const book = new Book(title, author, pages, completed); //access book
+
+    const library = new myLibrary();
+    library.addItem(book);
+    console.log(library.getItems);
 }

@@ -1,5 +1,4 @@
 let myLibrary = [];
-let myLibraryIds = [];
 
 // global variables for elements that are used in multiple functions
 const bookForm = document.querySelector(".BookForm");
@@ -18,7 +17,6 @@ function Book(title, author, pages, read){
         return this.title + " by " + this.author + " , " + 
         this.pages + " pages " + " , " + this.read;
     }
-    myLibraryIds.push(this.id)
 }
 
 //add error handling to check for emptiness

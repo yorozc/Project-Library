@@ -1,3 +1,20 @@
+const formVariables = () =>{ //priv access variables.
+    const bookForm = document.querySelector(".BookForm");
+    const addBookForm = document.querySelector("#addBook");
+    const showForm = document.querySelector(".showForm");
+    const singleBook = document.querySelector(".book");
+    const removeBook = document.querySelector(".removeBook");
+
+    return {
+        getBookForm: () => bookForm,
+        getAddBookForm: () => addBookForm,
+        getShowForm: () => showForm,
+        getSingleBook: () => singleBook,
+        getRemoveBook: () => removeBook,
+    }
+
+}
+
 const Book = class{ //private
     constructor(title, author, pages, read){
         this.id = crypto.randomUUID();
@@ -5,6 +22,9 @@ const Book = class{ //private
         this.author = author;
         this.pages = pages;
         this.read = read;
-
+        this.info = ()=>{
+            return this.title + " by " + this.author + " , " + 
+            this.pages + " pages " + " , " + this.read;
+        }
     }
 }

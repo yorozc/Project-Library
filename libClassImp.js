@@ -1,4 +1,4 @@
-const formVariables = () =>{ //priv access variables.
+const formVariables = () =>{ 
     const bookForm = document.querySelector(".BookForm");
     const addBookForm = document.querySelector("#addBook");
     const showForm = document.querySelector(".showForm");
@@ -11,20 +11,30 @@ const formVariables = () =>{ //priv access variables.
         getShowForm: () => showForm,
         getSingleBook: () => singleBook,
         getRemoveBook: () => removeBook,
+        resetAddBookForm: () => addBookForm.reset(),
     }
 }
 
-const myLibrary = class{ //encapsulation of book list
-    #library = [];
+const myLibrary = (() => { //encapsulation of book list
+    let instance;
+    const library = [];
 
-    addItem(item){
-        this.#library.push(item);
+    return class{
+        constructor(){
+            if (instance){
+                return instance;
+            }
+            instance = this;
+        }
+        addItem(item){
+            library.push(item);
+        }
+    
+        getItems(){
+            return [...library];
+        }
     }
-
-    getItems(){
-        return [...this.#library];
-    }
-}
+})
 
 const Book = class{ //private
     constructor(title, author, pages, read){
@@ -48,7 +58,14 @@ const addBookToLibrary = (event) =>{
     const pages = formData.get("pages");
     const completed = formData.get("read");
     const book = new Book(title, author, pages, completed); //access book
-    const library = new myLibrary();
+    const library = new myLibrary(); //may not work
     library.addItem(book);
-    console.log(library.getItems);
+    console.log(library.getItems());
+    displayBookShelf();
+    const formVariables = new formVariables();
+    formVariables.resetAddBookForm();
+}
+
+const displayBookShelf = () => {
+    
 }

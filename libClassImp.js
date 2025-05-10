@@ -4,6 +4,7 @@ const formVariables = () =>{
     const showForm = document.querySelector(".showForm");
     const singleBook = document.querySelector(".book");
     const removeBook = document.querySelector(".removeBook");
+    const shelf = document.querySelector(".BookShelf");
 
     return {
         getBookForm: () => bookForm,
@@ -12,6 +13,7 @@ const formVariables = () =>{
         getSingleBook: () => singleBook,
         getRemoveBook: () => removeBook,
         resetAddBookForm: () => addBookForm.reset(),
+        getShelf: () => shelf,
     }
 }
 
@@ -67,5 +69,5 @@ const addBookToLibrary = (event) =>{
 }
 
 const displayBookShelf = () => {
-    
+
 }

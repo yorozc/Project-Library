@@ -38,8 +38,6 @@ const Book = class{ //private
             this.pages + " pages " + " , " + this.read;
         }
     }
-
-    
 }
 
 const addBookToLibrary = (event) =>{
@@ -50,7 +48,6 @@ const addBookToLibrary = (event) =>{
     const pages = formData.get("pages");
     const completed = formData.get("read");
     const book = new Book(title, author, pages, completed); //access book
-
     const library = new myLibrary();
     library.addItem(book);
     console.log(library.getItems);
